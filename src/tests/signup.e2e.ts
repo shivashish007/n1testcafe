@@ -15,6 +15,11 @@ test
 	const yourPersonalEmail = "new-coworker@nicedomain.com";
 	// TODO - fillform from the SignupPage need to be implemented.
 	// NOTE - If you use a CVR that is already registered you will receive a warning. You can continue without any issues.
+	await t.typeText(await Selector('input[name="First Name"]'), 'firstName');
+	await t.typeText(await Selector('input[name="Last Name"]'), 'lastName');
+	await t.typeText(await Selector('input[name="email"]'), 'email');
+	await t.typeText(await Selector('input[name="reenter the email"]'), 'email');
+	await t.typeText(await Selector('input[name="phone number"]'), 'phoneNumber');
 	await SignupPage.fillForm(cvr, yourPersonalEmail);
 	await t.expect(SignupPage.verificationPage.exists).ok({ timeout: Times.LONG });
 });
